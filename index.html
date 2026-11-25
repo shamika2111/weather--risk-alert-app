@@ -4,29 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code-Verse Weather</title>
+    <title>Disaster Monitoring Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main class="app">
-        <h1>Weather <span>live from an API</span></h1>
 
-        <form id="searchForm">
-            <input id="cityInput" type="text" placeholder="Type a city… e.g. Pune" autocomplete="off">
-            <button type="submit">Search</button>
-        </form>
+    <div class="dashboard">
 
-        <p id="message"></p>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Disaster<span>Watch</span></h2>
 
-        <section id="card" class="card hidden">
-            <h2 id="place"></h2>
-            <p class="temp"><span id="temp"></span>°C</p>
-            <p class="wind">Wind <span id="wind"></span> km/h</p>
-            <p class="coords" id="coords"></p>
-        </section>
-    </main>
+            <nav>
+                <a href="#overview">Overview</a>
+                <!--When someone clicks: The browser automatically scrolls down to the HTML element whose ID is weather.-->
+                <a href="#weather">Weather</a>
+                <a href="#alerts">Disaster Alerts</a>
+                <a href="#forecast">Forecast</a>
+            </nav>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <h1>Disaster Monitoring</h1>
+                    <p>Weather conditions and risk monitoring</p>
+                </div>
+
+                <form id="searchForm">
+                    <input id="cityInput" type="text" placeholder="Enter city name..." autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+            </header>
+
+
+            <!-- Message -->
+            <p id="message"> </p>
+
+
+            <!-- Overview -->
+            <section id="overview">
+                <h2>Weather Overview</h2>
+
+                <section id="card" class="card hidden">
+                    <h2 id="place"></h2>
+
+                    <p class="temp">
+                        <span id="temp"></span>°C
+                    </p>
+
+                    <p class="wind">
+                        Wind <span id="wind"></span> km/h
+                    </p>
+
+                    <p class="coords" id="coords"></p>
+                </section>
+            </section>
+
+
+            <!-- Weather Metrics -->
+            <section id="weather">
+                <h2>Weather Information</h2>
+
+                <div class="weather-grid">
+
+                    <div class="metric-card">
+                        <h3>Humidity</h3>
+                        <p id="humidity">--</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Wind Speed</h3>
+                        <p id="windMetric">--</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Pressure</h3>
+                        <p id="pressure">--</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Visibility</h3>
+                        <p id="visibility">--</p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- Disaster Alerts -->
+            <section id="alerts">
+                <h2>Disaster Risk Alerts</h2>
+
+                <div id="alertContainer" class="alert-grid hidden">
+                    <!-- Risk cards will be added dynamically using JavaScript -->
+                </div>
+            </section>
+
+
+            <!-- Forecast -->
+            <section id="forecast">
+                <h2>Weather Forecast</h2>
+
+                <div class="forecast-container">
+                    <p>Forecast information will appear here.</p>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
