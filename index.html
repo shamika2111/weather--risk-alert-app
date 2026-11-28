@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disaster Monitoring Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -39,6 +40,9 @@
                 <form id="searchForm">
                     <input id="cityInput" type="text" placeholder="Enter city name..." autocomplete="off">
                     <button type="submit">Search</button>
+                    <button id="locationBtn" type="button">
+                        Use My Location 📍
+                    </button>
                 </form>
             </header>
 
@@ -96,6 +100,11 @@
                 </div>
             </section>
 
+            <!-- Location Map -->
+            <section id="location-map">
+                <h2>Location Map</h2>
+                <div id="map"></div>
+            </section>
 
             <!-- Disaster Alerts -->
             <section id="alerts">
@@ -103,6 +112,10 @@
 
                 <div id="alertContainer" class="alert-grid hidden">
                     <!-- Risk cards will be added dynamically using JavaScript -->
+                </div>
+                <div class="risk-box">
+                    <h3>Overall Disaster Risk</h3>
+                    <p id="riskLevel">Waiting for weather data...</p>
                 </div>
             </section>
 
@@ -119,6 +132,7 @@
         </main>
 
     </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script src="script.js"></script>
 
